@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+	//"image/jpeg"
    )
    func handler(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
@@ -19,6 +20,16 @@ import (
 	randomNumber := rand.Intn(max-min+1) + min
 	fmt.Fprintf(w, "Random Number: %d", randomNumber)
    }
+
+
+   func imageDisplay(w http.ResponseWriter, r *http.Request) {
+
+	//Set Content-Type Header
+	w.Header().Set("Content", "Pics/Coding.jpg")
+
+	
+   }
+
    func main() {
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(":8050", nil)
